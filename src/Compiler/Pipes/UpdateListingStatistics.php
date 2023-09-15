@@ -52,6 +52,7 @@ class UpdateListingStatistics
         return [
             [
                 '@output',
+                '@debug',
                 '@generated_at',
                 '@autoload',
                 '@failure',
@@ -59,6 +60,7 @@ class UpdateListingStatistics
             ],
             [
                 $listing->path,
+                $this->config->get('preload.disable_warnings') ? 'ini_set(\'error_reporting\', E_ALL & ~E_WARNING);' : '',
                 now()->toDateTimeString(),
                 $this->config->get('preload.use_require')
                     ? 'require_once \''.realpath($this->config->get('preload.autoloader')).'\';'

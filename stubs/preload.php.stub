@@ -33,6 +33,8 @@
  * @see https://github.com/laragear/preload
  */
 
+@debug
+
 @autoload
 
 $files = [@list];
